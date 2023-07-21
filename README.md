@@ -1,6 +1,8 @@
 # ST362_Project
 **Members**
+
 Garrett Stover - 210165190
+
 Graham Nicholls - 
 
 **Description:**
