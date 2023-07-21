@@ -19,17 +19,19 @@ Happiness Rank: Rank of the country based on the Happiness Score
 
 Happiness Score: A metric measured in 2016 by asking the sampled people the question: "How would you rate your happiness on a scale from 1 to 10?”
 
-Economy (GDP per Capita): The extent to which GDP contributes to the calculation of the Happiness Score.
+Economy (GDP per Capita): GDP of the country
 
-Family: The extent to which Family contributes to the calculation of the Happiness Score
+Family: Index of family involvement and community
 
-Health (Life Expectancy): The extent to which Life expectancy contributed to the calculation of the Happiness Score
+Health (Life Expectancy): Average life expectancy
 
-Freedom: The extent to which Freedom contributed to the calculation of the Happiness Score
+Freedom: The extent to which citizens are free 
 
-Trust (Government Corruption): The extent to which Perception of Corruption contributes to Happiness Score
+Trust (Government Corruption): The extent to which Perception of Corruption in government
 
 Generosity: The extent to which Generosity contributed to the calculation of the Happiness Score
+
+Skepticism: An index of the general skepticism that the citizens express
 
 **Changes:**
 
