@@ -1,0 +1,71 @@
+---
+title: "Diagnosis"
+output: html_document
+date: "2023-07-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+response <- read.csv("https://raw.githubusercontent.com/gwstover10/ST362_Project/main/Skepticism_Index.csv")
+head(response)
+```
+
+```{r}
+response2 <- response[,4:13]
+pairs(response2)
+```
+
+Here I created a new dataframe without the categorical variables to be able to show the relationships between skepticism and the other continuous variables. This display helps understand these relationships because if you look at the last column, it appears that the variables of freedom and trust are most certainly correlated to skepticism.
+
+
+```{r}
+plot(Skepticism~Trust..Government.Corruption., col = factor(Region), data = response)
+```
+Since we know that Trust is correlated with skepticism, we are now going to use the scatterplot to figure out if the regions have any affect on skepticism. With these colours being present, you can clearly see that certain regions have significant affect on skepticism. To look even further you can see that several regions share the same relationship so we will combine these regions to solidify the connection.
+
+
+```{r}
+response3 <- response 
+```
+
+
+```{r}
+#Western Europe, Central and Eastern Europe -> Europe
+response3$Region <- ifelse(response3$Region == "Western Europe" | response3$Region == "Central and Eastern Europe", "Europe", response3$Region)
+
+#Eastern Asia, Southeastern Asia, Southern Asia -> Asia
+response3$Region <- ifelse(response3$Region == "Eastern Asia" | response3$Region == "Southeastern Asia" | response3$Region == "Southern Asia", "Asia", response3$Region)
+response3$Region <- ifelse(response3$Region == "Australia and New Zealand", "Oceania", response3$Region)
+
+#Middle East and Northern Africa, Sub-Saharan Africa -> Africa and Middle East
+response3$Region <- ifelse(response3$Region == "Middle East and Northern Africa" | response3$Region == "Sub-Saharan Africa", "Africa and Middle East", response3$Region)
+
+
+#North America, Latin America and Caribbean -> Americas
+response3$Region <- ifelse(response3$Region == "North America" | response3$Region == "Latin America and Caribbean", "Americas", response3$Region)
+```
+
+```{r}
+plot(Skepticism~log(Freedom), col = factor(Region), data = response)
+```
+From before we could see that freedom had a positive correlation with skepticism and now we are going to try to see if any transformation to the variable will yield a better result. A polynomial transformation does not seem to work very well however, the log transformation does in fact show a stronger relationship. Same goes for the Trust variable except that the polynomial and log transformation did not improve the model.
+
+```{r}
+model1 <- lm(Skepticism~Region + Trust..Government.Corruption. + log(Freedom), data = response3)
+summary(model1)
+```
+
+
+```{r}
+hat_values <- hatvalues(model1)
+
+threshold_lev <- (2*length(coef(model1))/length(hat_values))
+# The following code will identify the observations with high leverage and assign it to high_leverage variable
+high_leverage<-hat_values[hat_values> threshold_lev]
+high_leverage
+```
+Now we are going to look at observations with abnormally high leverage and for this dataframe record 156 is extremely high at 0.69. We will now look at this country's freedom and trust values to see if there is any information we can deduce. In this case, Vatican City is that observation with extremely low values. From the scatterplots above, Vatican City is the red dot that is nowhere near the other red points. The red signifies western Europe and Vatican City is not considered an outlier because it blends in with other regions. In some cases, we would leave this observation in the model because its information is useful however, due to the pure size of the country we do not have certainty that the information can be an accurate representation of the situation in that country. Also the structuring of the government in Vatican City is so unique that its information does not serve any significance to a skepticism index. Therefore, when we remove this data point the model fits much nicer.
+
