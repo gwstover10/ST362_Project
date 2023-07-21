@@ -33,7 +33,7 @@ Generosity: The extent to which Generosity contributed to the calculation of the
 
 Skepticism: An index of the general skepticism that the citizens express
 
-**Facotr 1:**
+**Factor 1:**
 
 Outside of the model, the only change to the actual variables made was the Region variable. Before the change, there were 10 different regions from around the world, which were Western Europe, Central and Eastern Europe, Eastern Asia, Southeastern Asia, Southern Asia, Middle East and Northern Africa, Sub-Saharan Africa, North America, Latin America and Caribbean, and Australia and New Zealand. However, we felt that these regions could be renamed and combined into larger subregions that would allow us to create one of the features for our model. The new regions, called Europe, Asia, Africa and Middle East, Americas, and Oceania, are combinations or renaming of prior regions:
 
