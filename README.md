@@ -7,7 +7,7 @@ Graham Nicholls -
 
 **Description:**
 
-Governments have been around almost since the beginning of humanity, and politics even before that. The way people live is dictated by the society and system they live in, and is extremely important to their way of life. Despite this, many are often suspicious of their government’s actions, with good reason. Numerous scandals and crimes have been exposed over centuries worldwide, each increasing distrust in their respective governments. What we wanted to see was if a government's distrust had anything to do with how free the people under said government are. Using the World Happiness Index from 2016, we produced a model to compare trust in government, using both the freedom and region of each nation.
+Governments have been around almost since the beginning of humanity, and politics even before that. The way people live is dictated by the society and system they live in, and is extremely important to their way of life. Despite this, many are often suspicious of their government’s actions, with good reason. Numerous scandals and crimes have been exposed over centuries worldwide, each increasing distrust in their respective governments. What we wanted to see was if distrust in governments and the degree to which people are free had anything to do with how skeptical people are. Using the World Happiness Index from 2016 and making a few changes to observations, we produced a model to compare skepticism, using trust in government, freedom, and region of each nation.
 
 **The Variables:**
 
