@@ -1,9 +1,9 @@
 # ST362_Project
 **Members**
 
-Garrett Stover - 210165190
+Garrett Stover
 
-Graham Nicholls - 210601490
+Graham Nicholls
 
 **Description:**
 
